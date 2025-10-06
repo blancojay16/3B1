@@ -1,0 +1,68 @@
+<ion-content class="ion-padding signin-content">
+  <div class="signin-wrapper">
+    <div class="signin-card" (mousemove)="onMouseMove($event)">
+      <!-- Logo -->
+      <div class="logo">
+        <ion-icon name="cart-outline"></ion-icon>
+        <h1>3B<span>Shop</span></h1>
+      </div>
+
+      <!-- Title -->
+      <h2>Create Account</h2>
+      <p class="subtitle">Join us and start your shopping journey</p>
+
+      <!-- Input Fields -->
+      <div class="input-group">
+        <ion-item class="input-item" lines="none">
+          <ion-icon slot="start" name="person-outline" class="input-icon"></ion-icon>
+          <ion-input
+            type="text"
+            placeholder="Full Name"
+            [(ngModel)]="name"
+            class="input-field">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="input-item" lines="none">
+          <ion-icon slot="start" name="mail-outline" class="input-icon"></ion-icon>
+          <ion-input
+            type="email"
+            placeholder="Enter your email"
+            [(ngModel)]="email"
+            class="input-field">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="input-item" lines="none">
+          <ion-icon slot="start" name="lock-closed-outline" class="input-icon"></ion-icon>
+          <ion-input
+            type="password"
+            placeholder="Create a password"
+            [(ngModel)]="password"
+            class="input-field">
+          </ion-input>
+        </ion-item>
+      </div>
+
+      <!-- Sign Up Button -->
+      <div class="signin-btn-container">
+        <ion-button expand="block" class="signin-btn" (click)="signUp()">
+          Sign Up
+        </ion-button>
+      </div>
+
+      <!-- User Guide -->
+      <div class="user-guide" (click)="openGuide()">
+        <ion-icon name="help-circle-outline"></ion-icon>
+        <span>User Guide</span>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-text">
+        <p>Already have an account?
+          <a (click)="goToSignin()">Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

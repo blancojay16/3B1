@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>3BShop!</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark" class="ion-padding" [fullscreen]="true">
+
+  <p class="subtitle">Discover amazing products</p>
+
+  <!-- Search Bar -->
+  <ion-searchbar placeholder="Search for products..."></ion-searchbar>
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="banner-text">
+      <p class="flash">⚡ Flash Sale</p>
+      <h2>Up to 50% Off</h2>
+      <p>Limited time offer on selected items</p>
+      <ion-button size="small" color="success">Shop Now</ion-button>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="section-header">
+    <h2>Categories</h2>
+    <a>View All</a>
+  </div>
+
+  <div class="category-scroll">
+    <div
+      class="category-card"
+      *ngFor="let c of categories"
+      (click)="openCategory(c)">
+      <ion-icon [name]="c.icon"></ion-icon>
+      <p>{{ c.name }}</p>
+    </div>
+  </div>
+
+  <!-- Featured Products -->
+  <div class="section-header">
+    <h2>Featured Products</h2>
+    <a>View All</a>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" size-md="4" *ngFor="let f of featured">
+        <div class="product-card">
+          <div class="discount">{{ f.discount }}</div>
+          <img [src]="f.img" />
+
+          <div class="info">
+            <p class="category">{{ f.category }}</p>
+            <h3 class="name">{{ f.name }}</h3>
+
+            <!-- Rating -->
+            <div class="rating">
+              <ion-icon *ngFor="let star of getStars(f.rating)" [name]="star"></ion-icon>
+              <span class="reviews">({{ f.reviews }})</span>
+            </div>
+
+            <!-- Price -->
+            <p class="price">₱{{ f.price }}</p>
+
+            <!-- Add to Cart Button -->
+            <ion-button
+              expand="block"
+              size="small"
+              [color]="f.outOfStock ? 'medium' : 'success'"
+              [disabled]="f.outOfStock"
+              (click)="addToCart(f)">
+              {{ f.outOfStock ? 'Out of Stock' : 'Add to Cart' }}
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,106 @@
+ion-content {
+  --background: #121212; /* dark background */
+  color: #fff;
+  --padding-top: env(safe-area-inset-top);
+  --padding-bottom: calc(env(safe-area-inset-bottom) + 80px); /* space for bottom button */
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+ion-item {
+  --background: #1e1e1e;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+h2, p, h3 {
+  color: #fff;
+}
+
+ion-badge {
+  --background: #3ac569;
+  --color: #fff;
+}
+
+ion-button[color="success"] {
+  --background: #3ac569;
+  --color: #fff;
+}
+
+/* 🛒 Empty Cart */
+.empty-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  color: #ccc;
+  animation: fadeIn 0.6s ease-in;
+  padding: 0 20px;
+}
+
+.empty-image {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 12px rgba(58, 197, 105, 0.2));
+}
+
+.empty-cart h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.empty-cart p {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.shop-now-btn {
+  --background: linear-gradient(135deg, #3ac569, #2ebf91);
+  --color: #fff;
+  font-weight: 600;
+  --border-radius: 14px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 15px rgba(58,197,105,0.4);
+  transition: transform 0.2s ease;
+}
+
+.shop-now-btn:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Keep button safe above bottom edge on real phones */
+ion-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: #121212;
+}
+
+/* ✅ Prevent text clipping on small screens */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 18px;
+  }
+  .empty-image {
+    width: 150px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
